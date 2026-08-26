@@ -1,2 +1,1 @@
-finally:
-#   print('处理结束')
+__name__
