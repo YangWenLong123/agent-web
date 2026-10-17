@@ -3,7 +3,7 @@ Author: along
 Description: 
 Date: 2026-08-31 09:14:25
 LastEditors: along
-LastEditTime: 2026-09-02 09:46:54
+LastEditTime: 2026-10-15 11:29:53
 FilePath: /Agent-web/code/函数与作用域.py
 '''
 
@@ -143,3 +143,33 @@ def outer():
 
 outer()
 print(message)
+
+
+def report(name,score):
+    print(f"学生 {name} 的成绩是 {score}", f"成绩是: { '及格' if score>=60 else '不及格' }")
+
+report("小白", 75)
+
+def division(a,b):
+    return a,b
+
+print(division(10,2))  # (10, 2)
+
+print(min([10, 20, 30]))  # 10
+
+def info(age, name, city):
+    print(f"姓名: {name}, 年龄: {age}, 城市: {city}")
+
+
+info(name='张三', city='北京', age=25)  # 姓名: 张三, 年龄: 25, 城市: 北京
+
+def sum_all(*args):
+    print("Arguments:", args, type(args))
+sum_all(1, 2, 3, 4, 5)  # Arguments: (1, 2, 3, 4, 5) <class 'tuple'>
+
+def show_info(**keywords):
+    print("Keywords:", keywords, type(keywords))
+    for key, value in keywords.items():
+        print(f"{key}: {value}")
+
+show_info(name="Alice", age=30, city="New York")
