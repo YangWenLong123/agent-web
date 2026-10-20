@@ -351,3 +351,134 @@
 #     print(result)
 
 # asyncio.run(main())
+
+print(int('123'))
+print(float('123'))
+print(complex('123'))
+print(type({"a": 1}), type(str({"a": 1})), str({"a": 1}))
+
+value = [1, 2, 3]
+
+print(value)       # 看值
+print(type(value)) # 看类型
+print(id(value))   # 看对象身份；具体数字每次运行可能不同
+# print(dir(value)) # 看对象的属性和方法
+# print(dir('123')) # 看对象的属性和方法
+
+items = [1, 2]
+items += [3]
+print(items)  # [1, 2, 3]
+
+big_number = 10 ** 100
+print(big_number)
+
+population = 1_400_000_000
+print(population, population == 1400000000)
+
+print(-7 // 2)
+
+print(False + 1)
+
+text = "Python is fun"
+
+print(text.lower())
+print(text.upper())
+print(text.replace("fun", "powerful"))
+print(text.startswith("Python"))
+print(text.endswith("fun"))
+print(text.find("is"))       # 找不到时返回 -1
+print("a,b,c".split(","))
+print("-".join(["2026", "10", "17"]))
+
+
+list1 = [1, 2, 3]
+
+list1.append(4)
+print(list1)  # [1, 2, 3, 4]
+
+list1.extend([5, 6])
+print(list1)  # [1, 2, 3, 4, 5, 6]
+
+list1.insert(1,1.5)
+print(list1)  # [1, 1.5, 2, 3, 4, 5, 6]
+
+
+list1.remove(1.5)
+print(list1)  # [1, 2, 3, 4, 5, 6]
+
+list2 = list1.pop()
+print(list2)  # 6
+
+
+inventory = {
+    "keyboard": {"name": "机械键盘", "stock": 3, "minimum": 5},
+    "mouse": {"name": "鼠标", "stock": 12, "minimum": 5},
+    "monitor": {"name": "显示器", "stock": 0, "minimum": 2},
+}
+
+low_stock = []
+total_stock = 0
+
+for product_id, product in inventory.items():
+    stock = product["stock"]
+    minimum = product["minimum"]
+    total_stock += stock
+
+    if stock < minimum:
+        low_stock.append(product["name"])
+        status = "需要补货"
+    else:
+        status = "库存正常"
+
+    print(f"{product_id}: {product['name']}，库存 {stock}，{status}")
+
+print(f"库存总件数：{total_stock}")
+print(f"需要补货：{', '.join(low_stock) if low_stock else '无'}")
+
+
+
+from decimal import Decimal, ROUND_HALF_UP
+
+cart = [
+    {"name": "机械键盘", "price": Decimal("299.90"), "quantity": 1},
+    {"name": "鼠标", "price": Decimal("89.50"), "quantity": 2},
+    {"name": "鼠标垫", "price": Decimal("29.90"), "quantity": 1},
+]
+
+subtotal = Decimal("0")
+
+print("=== 购物清单 ===")
+for item in cart:
+    line_total = item["price"] * item["quantity"]
+    subtotal += line_total
+    print(
+        f"{item['name']}: "
+        f"{item['price']:.2f} x {item['quantity']} = {line_total:.2f}"
+    )
+
+if subtotal >= Decimal("200"):
+    discount_rate = Decimal("0.90")
+else:
+    discount_rate = Decimal("1")
+
+total = (subtotal * discount_rate).quantize(
+    Decimal("0.01"), rounding=ROUND_HALF_UP
+)
+
+discount = subtotal - total
+print("----------------")
+print(f"商品合计：{subtotal:.2f} 元")
+print(f"优惠金额：{discount:.2f} 元")
+print(f"应付金额：{total:.2f} 元")
+
+
+def greet(self):
+    print('hi')
+
+Greeter = type('Greeter', (object),{ 'greet': greet })
+
+g = Greeter()
+
+g.greet()
+
+print(type(Greeter))
