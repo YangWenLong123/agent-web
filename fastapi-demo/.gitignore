@@ -1,0 +1,8 @@
+frontend/node_modules/
+src/fastapi_demo/static/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+data/

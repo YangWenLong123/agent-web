@@ -10,6 +10,9 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi[standard]>=0.163.2",
     "uvicorn>=0.54.0",
+    "httpx>=0.28.1",
+    "python-dotenv>=1.2.1",
+    "pymysql[rsa]>=1.1.2",
 ]
 
 [project.scripts]
